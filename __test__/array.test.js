@@ -66,11 +66,6 @@ test("sortTest", () => {
   arr.sort();
   expect(arr).toEqual([1, 2, 3, 4, 5]);
 
-  const arr2 = [-1, 4, 5, 6, 2];
-  arr2.sort((a, b) => b > a);
-
-  expect(arr2).toEqual([6, 5, 4, 2, -1]);
-
   expect(6 > 2).toBe(true);
   expect(1 > 2).toBe(false);
 
@@ -86,4 +81,12 @@ test("sortTest", () => {
     expect(sortedArr2[0]).toEqual(1);
     expect(arr[0]).toEqual(5);
   })();
+});
+test("sort order", () => {
+  const arr = [-1, 4, 5, 6, 2];
+  arr.sort((a, b) => a - b);
+  expect(arr).toEqual([-1, 2, 4, 5, 6]);
+
+  arr.sort((a, b) => b - a);
+  expect(arr).toEqual([6, 5, 4, 2, -1]);
 });
