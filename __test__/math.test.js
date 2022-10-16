@@ -11,3 +11,7 @@ test("math", () => {
   eET(Math.round(2.4), 2);
   eET(Math.round(2.5), 3);
 });
+
+test("max", () => {
+  eET(Math.max(1, 2, 3), 3);
+});
