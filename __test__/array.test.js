@@ -31,6 +31,22 @@ test("concat test", () => {
   expectEqualTest(newMyArr, [1, 2, 3, 4, 5, 6]);
 });
 
+test("for loop test", () => {
+  const arr = [];
+  for (let i = 0; i < 10; i += 2) {
+    arr.push(i);
+  }
+  expectEqualTest(arr, [0, 2, 4, 6, 8]);
+});
+
+test("shift, unshift test", () => {
+  const arr = [1, 2, 3];
+  arr.shift();
+  expectEqualTest(arr, [2, 3]);
+  arr.unshift(4);
+  expectEqualTest(arr, [4, 2, 3]);
+});
+
 LOG(a.slice(2, a.length).toString(), a);
 
 let accu = 0;
