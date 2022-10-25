@@ -171,7 +171,7 @@ test("결혼식", () => {
       if (a[0] === b[0]) return a[1].charCodeAt() - b[1].charCodeAt();
       return a[0] - b[0];
     });
-    LOG(newArr, "newaszx");
+    // LOG(newArr, "newaszx");
     let max = 0;
     let cnt = 0;
     for (let [_, code] of newArr) {
@@ -191,3 +191,10 @@ test("결혼식", () => {
   ]);
   expectEqualTest(result, 2);
 });
+
+
+test("마구간 정하기", () => {
+  function solution(arr, count) {
+    
+  }
+})
