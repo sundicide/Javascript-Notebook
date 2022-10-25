@@ -26,12 +26,14 @@ test("hashMap Test", () => {
   })
   
   /**
-   * get: Key를 이용한 값 얻기
-   * has: Map 내 key가 있는지 검색
-   * delete: Map 내 키 제거
+   * get($KEY): Key를 이용한 값 얻기
+   * has($KEY): Map 내 key가 있는지 검색
+   * delete($KEY): Map 내 키 제거
+   * size: Map 크기
    */
   eeT(hashMap.get("i"), 2)
   eeT(hashMap.has("i"), true)
+  eeT(hashMap.size, 4)
   hashMap.delete("i")
   eeT(hashMap.has("i"), false)
 
