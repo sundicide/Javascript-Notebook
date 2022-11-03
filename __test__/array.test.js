@@ -5,6 +5,7 @@ console.clear();
 var a = [1, 2, 3, 4, 5];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+// 원본은 안바뀐다
 test("slice test", () => {
   var myArr = [1, 2, 3, 4];
   expectEqualTest(myArr.slice(), myArr);
@@ -14,6 +15,7 @@ test("slice test", () => {
 });
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+// 원본이 바뀐다
 test("splice test", () => {
   var myArr = [1, 2, 3, 4];
   expectEqualTest(myArr.splice(), []);
