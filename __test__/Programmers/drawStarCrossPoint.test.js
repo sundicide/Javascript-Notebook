@@ -5,45 +5,35 @@ test("교점에 별 만들기", () => {
         var answer = [];
 
         function getVar(line) {
-            return {
-                x: line[0],
-                y: line[1],
-                d: line[2]
-            }
+            return [line[0], line[1], line[2]]
         }
 
         function getCrossPos(_line1, _line2) {
-            const line1 = getVar(_line1)
-            const line2 = getVar(_line2)
-            const A = line1.x
-            const B = line1.y
-            const E = line1.d
-            const C = line2.x
-            const D = line2.y
-            const F = line2.d
+            const [A, B, E] = getVar(_line1)
+            const [C, D, F] = getVar(_line2)
 
             const bottom = A * D - B * C
             if (bottom === 0) return null
             const calcX = (B * F - E * D) / bottom
             const calcY = (E * C - A * F) / bottom
-            if (Math.ceil(calcX) !== calcX || Math.ceil(calcY) !== calcY) return null
-            return [calcX, calcY]
+            if (Number.isInteger(calcX) && Number.isInteger(calcY)) return [calcX, calcY]
+            else return null
         }
 
         const arr = []
-        let minX = 0
-        let maxX = 0
-        let minY = 0
-        let maxY = 0
+        let maxX = Number.MIN_SAFE_INTEGER
+        let minX = Number.MAX_SAFE_INTEGER
+        let maxY = Number.MIN_SAFE_INTEGER
+        let minY = Number.MAX_SAFE_INTEGER
         for (let i = 0; i < line.length - 1; i++) {
             for (let j = i + 1; j < line.length; j++) {
                 const result = getCrossPos(line[i], line[j])
                 if (result) {
                     const [x, y] = result
-                    if (x < minX) minX = x
-                    else if (x > maxX) maxX = x
-                    if (y < minY) minY = y
-                    else if (y > maxY) maxY = y
+                    minX = Math.min(x, minX)
+                    maxX = Math.max(x, maxX)
+                    minY = Math.min(y, minY)
+                    maxY = Math.max(y, maxY)
                     arr.push(result)
                 }
             }
@@ -51,15 +41,14 @@ test("교점에 별 만들기", () => {
         // console.log(minX, maxX, minY, maxY, arr)
         if (minX === 0 && minY === 0 && maxX === 0 && maxY === 0) return ["*"]
 
-        const resultArr = Array.from(Array(Math.abs(minY) + Math.abs(maxY) + (minY !== 0 && maxY !== 0 ? 1 : 0)), () => Array(Math.abs(minX) + Math.abs(maxX) + (minX !== 0 && maxX !== 0 ? 1 : 0)).fill('.'))
+        const resultArr = Array.from(Array(maxY - minY + 1), () => Array(maxX - minX + 1).fill('.'))
         // console.log(resultArr)
         arr.forEach(([x, y]) => {
-            let tempX = Math.abs(maxX - x) - (minX === 0 || maxX === 0 ? 1 : 0)
-            let tempY = Math.abs(minY - y) - (minY === 0 || maxY === 0 ? 1 : 0)
+            // let tempX = Math.abs(maxX - x) - (minX === 0 || maxX === 0 ? 1 : 0)
+            // let tempY = Math.abs(minY - y) - (minY === 0 || maxY === 0 ? 1 : 0)
             // console.log(x, y, tempX, tempY)
-            resultArr[tempY][tempX] = '*'
+            resultArr[maxY - y][x - minX] = '*'
         })
-        console.log("zzzzz", resultArr.length, resultArr[0].length, minX, maxX, minY, maxY)
         return resultArr.map(d => d.join('')).flat()
     }
     const case1 = [[[2, -1, 4], [-2, -1, 4], [0, -1, 1], [5, -8, -12], [5, 8, 12]],	["....*....", ".........", ".........", "*.......*", ".........", ".........", ".........", ".........", "*.......*"]]
