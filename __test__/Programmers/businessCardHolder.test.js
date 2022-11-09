@@ -1,31 +1,16 @@
 import {expectEqualTest} from "../utils";
 
+// https://school.programmers.co.kr/learn/courses/30/lessons/86491
 test("명함지갑 카드 크기", () => {
     function solution(sizes) {
-        var answer = 0;
-        const firsts = []
-        const seconds = []
-        let max = [0, 0, 0];
-        for (let i = 0; i < sizes.length; i++) {
-            const [first, second] = sizes[i]
-            firsts.push(first)
-            seconds.push(second)
-            const newMax = Math.max(first, second, max[2])
-            if (newMax !== max[2]) {
-                max = [i, first === newMax ? 1 : 0, newMax]
-            }
+        const mins = []
+        const maxs = []
+        for (let size of sizes) {
+            const [w, h] = size
+            mins.push(Math.min(w, h))
+            maxs.push(Math.max(w, h))
         }
-
-        let newMax = 0
-        for (let i = 0; i < sizes.length; i++) {
-            if (i === max[0]) {
-                newMax = Math.max(newMax, sizes[i][max[1]])
-            } else {
-                const [first, second] = sizes[i]
-                newMax = Math.max(newMax, Math.min(first, second))
-            }
-        }
-        return max[2] * newMax;
+        return Math.max(...maxs) * Math.max(...mins)
     }
 
     const case1 = [[[60, 50], [30, 70], [60, 30], [80, 40]], 4000]
