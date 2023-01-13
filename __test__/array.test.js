@@ -108,3 +108,23 @@ test("sort order", () => {
   arr.sort((a, b) => b - a);
   expect(arr).toEqual([6, 5, 4, 2, -1]);
 });
+
+test("배열의 모든 조합의 수", () => {
+  const arr = ["1","2","3","4"]
+  const result = []
+  function iter(accu, idx) {
+    for (let i = idx; i < arr.length; i++) {
+      result.push(accu + arr[i])
+      iter(accu + arr[i], i + 1)
+    }
+  }
+  iter("", 0)
+
+  expect(result).toEqual([
+    '1',    '12',  '123',
+    '1234', '124', '13',
+    '134',  '14',  '2',
+    '23',   '234', '24',
+    '3',    '34',  '4'
+  ])
+})
