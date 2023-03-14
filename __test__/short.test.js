@@ -5,10 +5,10 @@ const shape = {
   },
   perimeter: function () {
     return 2 * Math.PI * this.radius;
-  }
+  },
 };
 
-test("", () => {
+test('', () => {
   expect(shape.diameter()).toBe(20);
 });
 console.log(shape.perimeter());

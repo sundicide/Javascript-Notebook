@@ -1,31 +1,31 @@
-import { expectEqualTest, LOG } from "../utils";
+import { expectEqualTest, LOG } from '../utils';
 
-test("prob 1", () => {
+test('prob 1', () => {
   function solution(str) {
     const arr = [];
     for (let x of str) {
-      if (x === "(") {
+      if (x === '(') {
         arr.push(x);
         continue;
-      } else if (x === ")" && arr.length > 0 && arr[arr.length - 1] === "(") {
+      } else if (x === ')' && arr.length > 0 && arr[arr.length - 1] === '(') {
         arr.pop();
         continue;
       } else return false;
     }
     return arr.length === 0 ? true : false;
   }
-  const result = solution("(()(()))(()");
+  const result = solution('(()(()))(()');
   expectEqualTest(result, false);
 });
 
-test("prob  2", () => {
+test('prob  2', () => {
   function solution(str) {
     let ignoring = 0;
-    let resultString = "";
+    let resultString = '';
     for (let x of str) {
-      if (x === "(") {
+      if (x === '(') {
         ignoring += 1;
-      } else if (x === ")") {
+      } else if (x === ')') {
         ignoring -= 1;
       } else if (ignoring > 0) {
         continue;
@@ -35,11 +35,11 @@ test("prob  2", () => {
     }
     return resultString;
   }
-  const result = solution("(A(BC)D)EF(G(H)(IJ)K)LM(N)");
-  expectEqualTest(result, "EFLM");
+  const result = solution('(A(BC)D)EF(G(H)(IJ)K)LM(N)');
+  expectEqualTest(result, 'EFLM');
 });
 
-test("prob 3", () => {
+test('prob 3', () => {
   function solution(boards, moves) {
     let popedCount = 0;
     const stack = [];
@@ -80,7 +80,7 @@ test("prob 3", () => {
   expectEqualTest(result, 4);
 });
 
-test("prob 4", () => {
+test('prob 4', () => {
   function solution(str) {
     const arr = [];
 
@@ -92,15 +92,15 @@ test("prob 4", () => {
         const num1 = arr.pop();
         const num2 = arr.pop();
         let calc = 0;
-        if (operator === "+") calc = num2 + num1;
-        else if (operator === "-") calc = num2 - num1;
-        else if (operator === "*") calc = num2 * num1;
-        else if (operator === "/") calc = num2 / num1;
+        if (operator === '+') calc = num2 + num1;
+        else if (operator === '-') calc = num2 - num1;
+        else if (operator === '*') calc = num2 * num1;
+        else if (operator === '/') calc = num2 / num1;
         arr.push(calc);
       }
     }
     return arr[0];
   }
-  const result = solution("352+*9-");
+  const result = solution('352+*9-');
   expectEqualTest(result, 12);
 });

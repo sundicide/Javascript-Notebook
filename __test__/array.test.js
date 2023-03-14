@@ -1,4 +1,4 @@
-import { LOG, expectEqualTest } from "./utils";
+import { LOG, expectEqualTest } from './utils';
 
 console.clear();
 
@@ -6,7 +6,7 @@ var a = [1, 2, 3, 4, 5];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 // 원본은 안바뀐다
-test("slice test", () => {
+test('slice test', () => {
   var myArr = [1, 2, 3, 4];
   expectEqualTest(myArr.slice(), myArr);
   expectEqualTest(myArr.slice(-2), [3, 4]);
@@ -16,16 +16,16 @@ test("slice test", () => {
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 // 원본이 바뀐다
-test("splice test", () => {
+test('splice test', () => {
   var myArr = [1, 2, 3, 4];
   expectEqualTest(myArr.splice(), []);
   expectEqualTest(myArr.splice(-2, 1), [3]);
   expectEqualTest(myArr, [1, 2, 4]);
-  expectEqualTest(myArr.splice(2, 1, "a", "b", "c"), [4]);
-  expectEqualTest(myArr, [1, 2, "a", "b", "c"]);
+  expectEqualTest(myArr.splice(2, 1, 'a', 'b', 'c'), [4]);
+  expectEqualTest(myArr, [1, 2, 'a', 'b', 'c']);
 });
 
-test("concat test", () => {
+test('concat test', () => {
   var myArr = [1, 2, 3, 4];
   myArr.concat([5, 6]);
   expectEqualTest(myArr, [1, 2, 3, 4]); // concat은 원본 안바뀐다.
@@ -33,7 +33,7 @@ test("concat test", () => {
   expectEqualTest(newMyArr, [1, 2, 3, 4, 5, 6]);
 });
 
-test("for loop test", () => {
+test('for loop test', () => {
   const arr = [];
   for (let i = 0; i < 10; i += 2) {
     arr.push(i);
@@ -41,7 +41,7 @@ test("for loop test", () => {
   expectEqualTest(arr, [0, 2, 4, 6, 8]);
 });
 
-test("shift, unshift test", () => {
+test('shift, unshift test', () => {
   const arr = [1, 2, 3];
   arr.shift();
   expectEqualTest(arr, [2, 3]);
@@ -56,18 +56,18 @@ a.find((d) => (accu += d));
 
 var b = [1];
 LOG(
-  "Accu",
+  'Accu',
   b.reduce((a, b) => a + b)
 );
 
-LOG("includes", [1, 2, 3, 4, 5].includes(2));
+LOG('includes', [1, 2, 3, 4, 5].includes(2));
 
-LOG("slice", a.splice(0, 2), a);
+LOG('slice', a.splice(0, 2), a);
 
 b = [1, 2];
 b.shift();
 
-LOG("shift", b);
+LOG('shift', b);
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -78,7 +78,7 @@ LOG("shift", b);
  *    0 이라면 그대로
  *    < 0 이라면 after 뒤에 before가 온다.
  */
-test("sortTest", () => {
+test('sortTest', () => {
   const arr = [5, 4, 3, 2, 1];
 
   arr.sort();
@@ -100,7 +100,7 @@ test("sortTest", () => {
     expect(arr[0]).toEqual(5);
   })();
 });
-test("sort order", () => {
+test('sort order', () => {
   const arr = [-1, 4, 5, 6, 2];
   arr.sort((a, b) => a - b);
   expect(arr).toEqual([-1, 2, 4, 5, 6]);
@@ -109,22 +109,32 @@ test("sort order", () => {
   expect(arr).toEqual([6, 5, 4, 2, -1]);
 });
 
-test("배열의 모든 조합의 수", () => {
-  const arr = ["1","2","3","4"]
-  const result = []
+test('배열의 모든 조합의 수', () => {
+  const arr = ['1', '2', '3', '4'];
+  const result = [];
   function iter(accu, idx) {
     for (let i = idx; i < arr.length; i++) {
-      result.push(accu + arr[i])
-      iter(accu + arr[i], i + 1)
+      result.push(accu + arr[i]);
+      iter(accu + arr[i], i + 1);
     }
   }
-  iter("", 0)
+  iter('', 0);
 
   expect(result).toEqual([
-    '1',    '12',  '123',
-    '1234', '124', '13',
-    '134',  '14',  '2',
-    '23',   '234', '24',
-    '3',    '34',  '4'
-  ])
-})
+    '1',
+    '12',
+    '123',
+    '1234',
+    '124',
+    '13',
+    '134',
+    '14',
+    '2',
+    '23',
+    '234',
+    '24',
+    '3',
+    '34',
+    '4',
+  ]);
+});

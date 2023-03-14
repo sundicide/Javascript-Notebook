@@ -1,7 +1,7 @@
-import { expectEqualTest, LOG } from "../utils";
+import { expectEqualTest, LOG } from '../utils';
 
 // 선택 정렬
-test("선택 정렬", () => {
+test('선택 정렬', () => {
   function solution(arr) {
     for (let i = 0; i < arr.length; i++) {
       let minIdx = i;
@@ -20,7 +20,7 @@ test("선택 정렬", () => {
   expectEqualTest(solution([13, 5, 11, 7, 23, 15]), [5, 7, 11, 13, 15, 23]);
 });
 
-test("prob 1 desc", () => {
+test('prob 1 desc', () => {
   function solution(arr) {
     for (let i = 0; i < arr.length; i++) {
       let min = arr[i];
@@ -42,7 +42,7 @@ test("prob 1 desc", () => {
 });
 
 // 버블 정렬
-test("prob 2", () => {
+test('prob 2', () => {
   function solution(arr) {
     for (let i = 0; i < arr.length; i++) {
       for (let j = i; j < arr.length - i - 1; j++) {
@@ -60,7 +60,7 @@ test("prob 2", () => {
   const result = solution([1, 3, 4, 2]);
 });
 
-test("삽입 정렬", () => {
+test('삽입 정렬', () => {
   function less(a, b) {
     return a < b;
   }
@@ -77,7 +77,7 @@ test("삽입 정렬", () => {
   expectEqualTest(solution([13, 5, 11, 7, 23, 15]), [5, 7, 11, 13, 15, 23]);
 });
 
-test("삽입 정렬 내림차순", () => {
+test('삽입 정렬 내림차순', () => {
   function big(a, b) {
     return a > b;
   }
@@ -93,7 +93,7 @@ test("삽입 정렬 내림차순", () => {
   expectEqualTest(solution([13, 5, 11, 7, 23, 15]), [23, 15, 13, 11, 7, 5]);
 });
 
-test("좌표 정렬", () => {
+test('좌표 정렬', () => {
   function solution(arr) {
     const N = arr.length;
     for (let i = 0; i < N; i++) {
@@ -125,7 +125,7 @@ test("좌표 정렬", () => {
   );
 });
 
-test("회의실 배정", () => {
+test('회의실 배정', () => {
   function solution(arr) {
     arr.sort((a, b) => {
       if (a[1] == b[1]) return a[0] - b[0];
@@ -160,12 +160,12 @@ test("회의실 배정", () => {
   );
 });
 
-test("결혼식", () => {
+test('결혼식', () => {
   function solution(arr) {
     const newArr = [];
     arr.forEach((d) => {
-      newArr.push([d[0], "s"]);
-      newArr.push([d[1], "e"]);
+      newArr.push([d[0], 's']);
+      newArr.push([d[1], 'e']);
     });
     newArr.sort((a, b) => {
       if (a[0] === b[0]) return a[1].charCodeAt() - b[1].charCodeAt();
@@ -175,7 +175,7 @@ test("결혼식", () => {
     let max = 0;
     let cnt = 0;
     for (let [_, code] of newArr) {
-      if (code === "s") cnt++;
+      if (code === 's') cnt++;
       else cnt--;
 
       max = Math.max(max, cnt);
@@ -192,9 +192,6 @@ test("결혼식", () => {
   expectEqualTest(result, 2);
 });
 
-
-test("마구간 정하기", () => {
-  function solution(arr, count) {
-    
-  }
-})
+test('마구간 정하기', () => {
+  function solution(arr, count) {}
+});

@@ -1,6 +1,6 @@
-import { expectEqualTest, LOG } from "../utils";
+import { expectEqualTest, LOG } from '../utils';
 
-test("prob 1", () => {
+test('prob 1', () => {
   function solution(a, b) {
     const aLength = a.length;
     const bLength = b.length;
@@ -24,7 +24,7 @@ test("prob 1", () => {
 });
 
 // 공통원소 구하기
-test("problem 2", () => {
+test('problem 2', () => {
   function solution(paramArr1, paramArr2) {
     const result = [];
 
@@ -62,7 +62,7 @@ test("problem 2", () => {
 });
 
 // 연속 부분 수열
-test("problem 3 ver1", () => {
+test('problem 3 ver1', () => {
   function solution(paramArr1, goal) {
     let result = 0;
 
@@ -86,7 +86,7 @@ test("problem 3 ver1", () => {
   const result = solution([1, 2, 1, 3, 1, 1, 1, 2], 6);
   expectEqualTest(result, 3);
 });
-test("problem 3 ver2", () => {
+test('problem 3 ver2', () => {
   function solution(paramArr1, goal) {
     let result = 0;
 
@@ -108,7 +108,7 @@ test("problem 3 ver2", () => {
 });
 
 // 연속 부분 함수
-test("problem 4 ver1", () => {
+test('problem 4 ver1', () => {
   function solution(paramArr1, goal) {
     let result = 0;
     let lt = 0;
@@ -133,7 +133,7 @@ test("problem 4 ver1", () => {
   expectEqualTest(result, 10);
 });
 
-test("problem 4 ver2", () => {
+test('problem 4 ver2', () => {
   function solution(paramArr1, goal) {
     let result = 0;
     let lt = 0;
@@ -153,7 +153,7 @@ test("problem 4 ver2", () => {
 });
 
 // 최대 매출
-test("problem 5", () => {
+test('problem 5', () => {
   function solution(paramArr1, nums) {
     const length = paramArr1.length;
 
@@ -173,9 +173,9 @@ test("problem 5", () => {
 });
 
 // 학급 회장
-test("problem 6 ver1", () => {
+test('problem 6 ver1', () => {
   function solution(arr) {
-    const hash = arr.split("").reduce((accu, curr) => {
+    const hash = arr.split('').reduce((accu, curr) => {
       if (!accu[curr]) {
         accu[curr] = 1;
       } else {
@@ -183,7 +183,7 @@ test("problem 6 ver1", () => {
       }
       return accu;
     }, {});
-    let answer = "";
+    let answer = '';
     let maxVal = Number.MIN_SAFE_INTEGER;
     Object.entries(hash).forEach(([key, val]) => {
       if (maxVal < val) {
@@ -193,12 +193,12 @@ test("problem 6 ver1", () => {
     });
     return answer;
   }
-  const result = solution("BACBACCACCBDEDE");
-  expectEqualTest(result, "C");
+  const result = solution('BACBACCACCBDEDE');
+  expectEqualTest(result, 'C');
 });
 
 // 학급 회장
-test("problem 6 ver2", () => {
+test('problem 6 ver2', () => {
   function solution(str) {
     var resultMap = new Map();
 
@@ -207,7 +207,7 @@ test("problem 6 ver2", () => {
       else resultMap.set(x, 1);
     }
 
-    let answer = "";
+    let answer = '';
     let maxVal = Number.MIN_SAFE_INTEGER;
     for (let [key, value] of resultMap) {
       if (value > maxVal) {
@@ -217,12 +217,12 @@ test("problem 6 ver2", () => {
     }
     return answer;
   }
-  const result = solution("BACBACCACCBDEDE");
-  expectEqualTest(result, "C");
+  const result = solution('BACBACCACCBDEDE');
+  expectEqualTest(result, 'C');
 });
 
 // 모든 아나그램 찾기
-test("problem 8", () => {
+test('problem 8', () => {
   function solution(problemStr, targetStr) {
     const hashMap = new Map();
 
@@ -258,6 +258,6 @@ test("problem 8", () => {
     return result;
   }
 
-  const result = solution("bacaAacba", "abc");
+  const result = solution('bacaAacba', 'abc');
   expectEqualTest(result, 3);
 });

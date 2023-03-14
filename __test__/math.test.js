@@ -1,7 +1,7 @@
-import { expectEqualTest as eET } from "./utils";
+import { expectEqualTest as eET } from './utils';
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
-test("math", () => {
+test('math', () => {
   const num = 2.5;
 
   eET(Math.floor(num), 2);
@@ -12,6 +12,6 @@ test("math", () => {
   eET(Math.round(2.5), 3);
 });
 
-test("max", () => {
+test('max', () => {
   eET(Math.max(1, 2, 3), 3);
 });
